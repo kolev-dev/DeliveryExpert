@@ -1,4 +1,6 @@
+from generators_and_verifiers import generate_account_id
 import re
+
 
 class User:
     def __init__(self, full_name, phone_number, email, address):
@@ -6,6 +8,12 @@ class User:
         self.phone_number = phone_number
         self.__email = email
         self.address = address
+
+        self.user_account_id = generate_account_id()
+        self.account_verified = False
+
+    def print_id(self):
+        return self.user_account_id
 
     def change(self, **kwargs):
         for key, value in kwargs.items():
@@ -26,4 +34,4 @@ class User:
 
 
 a = User('hristo', '04909', 'lkfkjksfafdd', 'lkgl')
-
+print(a.print_id())
