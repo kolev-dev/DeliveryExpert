@@ -22,8 +22,9 @@ def generate_account_id():
      The first two characters represent the year the account was created"""
 
     generated_id = "25"
-    for digit in range(10):
-        current_random = random.randint(48, 57)
-        generated_id += chr(current_random)
+    #25 represents the current year: for example 2025 -> 25
+
+    generated_id += str(random.randint(999_999_999, 1_000_000_000_0))
+    # This code here generates random int with length of 10 characters
 
     return int(generated_id + "0000")
